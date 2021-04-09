@@ -1,0 +1,44 @@
+{
+  "Data": [
+    {
+      "PortName": "IGOUMENITSA",
+      "PortNumber": "77",
+      "Country": "Greece",
+      "Coordinates": "39.5018° / 20.2463°",
+      "ShipsOnPort": 5,
+      "Un/locode": "GRIGO"
+    },
+    {
+      "PortName": "ORNO",
+      "PortNumber": "99",
+      "Country": "Sweden",
+      "Coordinates": "59.0895° / 18.41465°",
+      "ShipsOnPort": 2,
+      "Un/locode": "SEORO"
+    },
+    {
+      "PortName": "KARLOVASI",
+      "PortNumber": "44",
+      "Country": "Greece",
+      "Coordinates": "37.79704° / 26.683305°",
+      "ShipsOnPort": 0,
+      "Un/locode": "GRKAR"
+    },
+    {
+      "PortName": "MYTILINI",
+      "PortNumber": "66",
+      "Country": "Greece",
+      "Coordinates": "39.099435° / 26.56115°",
+      "ShipsOnPort": 0,
+      "Un/locode": "GRMJT"
+    },
+    {
+      "PortName": "KATAKOLO",
+      "PortNumber": "55",
+      "Country": "Greece",
+      "Coordinates": "37.646125° / 21.32386°",
+      "ShipsOnPort": 1,
+      "Un/locode": "GRKAK"
+    }
+  ]
+}
