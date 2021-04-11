@@ -15,6 +15,9 @@ public class Data
 
     [JsonProperty("Un/locode")]
     public string UnLocode { get; set; }
+    public string IMO {get; set;}
+    public string shipName { get; set; }
+    public string shipType {get; set;}
 }
 
 public class Root
