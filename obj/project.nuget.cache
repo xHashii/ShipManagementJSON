@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PZ7Bt+4i3Ii/tvPu2glE9CEbLXF2mULhrBjSezXJT4TgHBW5Xt+PzaWzIHxyB+cIyZpq1AAF5m3E++Ev5E94aw==",
+  "dgSpecHash": "RpNXT1Lo6zUW5JSUZcdLGHqxczqb5Hx756Eez4cV6L5aHkFB9/AFj7AkprN7PntqusvFVeQBTXNMZJIajigCqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\wowst\\Desktop\\test scraper\\ShipManagement.csproj",
+  "projectFilePath": "C:\\Users\\wowst\\Desktop\\ShipManagement(JSON)\\ShipManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wowst\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],

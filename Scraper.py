@@ -27,7 +27,7 @@ except AttributeError:
 
 country = soup.find('span', class_='font-120').text
 shipsOnThePortCount = soup.find('div', class_='bg-info bg-light padding-10 radius-4 text-left').text
-shipURL = 'https://www.marinetraffic.com/en/reports?asset_type=vessels&columns=flag,shipname,photo,recognized_next_port,reported_eta,reported_destination,current_port,imo,ship_type,show_on_live_map,time_of_latest_position,lat_of_latest_position,lon_of_latest_position,notes&current_port_in=' + portNumber
+shipURL = 'https://www.marinetraffic.com/bg/reports?asset_type=vessels&columns=flag,shipname,photo,recognized_next_port,reported_eta,reported_destination,current_port,imo,ship_type,show_on_live_map,time_of_latest_position,lat_of_latest_position,lon_of_latest_position,notes&current_port_in|begins|' + portName.split(' ')[0] + "|current_port_in=" + portNumber
 payload={}
 headers = {
   'User-Agent': 'Mozilla/5.0',
@@ -42,7 +42,6 @@ for ship in response.json()['data']:
     shipIMO = ship["IMO"]
     shipName = ship['SHIPNAME']
     shipType = ship['TYPE_SUMMARY']
-    print(ship['SHIPNAME'] + " " + ship["IMO"])
 
 
 

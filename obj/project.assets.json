@@ -54,11 +54,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wowst\\Desktop\\test scraper\\ShipManagement.csproj",
+      "projectUniqueName": "C:\\Users\\wowst\\Desktop\\ShipManagement(JSON)\\ShipManagement.csproj",
       "projectName": "ShipManagement",
-      "projectPath": "C:\\Users\\wowst\\Desktop\\test scraper\\ShipManagement.csproj",
+      "projectPath": "C:\\Users\\wowst\\Desktop\\ShipManagement(JSON)\\ShipManagement.csproj",
       "packagesPath": "C:\\Users\\wowst\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wowst\\Desktop\\test scraper\\obj\\",
+      "outputPath": "C:\\Users\\wowst\\Desktop\\ShipManagement(JSON)\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
