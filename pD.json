@@ -1,15 +1,1 @@
-{
-  "Data": [
-    {
-      "PortName": "CHALKIS",
-      "PortNumber": "23",
-      "Country": "Greece",
-      "Coordinates": "38.456505° / 23.589415°",
-      "ShipsOnPort": 6,
-      "Un/locode": "GRCLK",
-      "ShipName": "OMAR",
-      "ShipType": "Cargo",
-      "IMO": "6708563"
-    }
-  ]
-}
+~~~~

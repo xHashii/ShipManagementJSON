@@ -38,21 +38,26 @@ headers = {
   'Connection': 'keep-alive',
 }
 response = requests.request("GET", shipURL, headers=headers, data=payload)
-for ship in response.json()['data']:
-    shipIMO = ship["IMO"]
+d = response.json()
+for ship in d['data']:
     shipName = ship['SHIPNAME']
+    shipIMO = ship["IMO"]
     shipType = ship['TYPE_SUMMARY']
 
-
+ptN = str(portName).replace(portName.split(' ')[len(portName.split(' ')) - 1],'')
+ptC = country.replace(country.split(' ')[0], '')
+coords = shipsOnThePortCount.replace('\n', '~').split('~')[3]
+SoP = int(shipsOnThePortCount.replace('\n', '~').split('~')[18])
+unlC = shipsOnThePortCount.replace('\n', '~').split('~')[14]
 
 class storeData(Frame):
     Data = {'Data': [{
-    "PortName": portName.split(' ')[0],
+    "PortName": ptN,
     "PortNumber": portNumber,
-    "Country": country.split(' ')[1],
-    "Coordinates": shipsOnThePortCount.replace('\n', '~').split('~')[3],
-    "ShipsOnPort": int(shipsOnThePortCount.replace('\n', '~').split('~')[18]),
-    "Un/locode": shipsOnThePortCount.replace('\n', '~').split('~')[14],
+    "Country": ptC,
+    "Coordinates": coords,
+    "ShipsOnPort": SoP,
+    "Un/locode": unlC,
     "ShipName": shipName,
     "ShipType": shipType,
     "IMO": shipIMO
@@ -65,7 +70,7 @@ class storeData(Frame):
             source_data = json.load(outfile_r)
             new_data = True
             
-            source_data['Data'].append({'PortName': portName.split(' ')[0], 'PortNumber': portNumber, 'Country': country.split(' ')[1], 'Coordinates': (str(shipsOnThePortCount).replace('\n', '~')).split('~')[3], 'ShipsOnPort': int(shipsOnThePortCount.replace('\n', '~').split('~')[18]), 'Un/locode':shipsOnThePortCount.replace('\n', '~').split('~')[14], 'shipName': shipName, 'shipType': shipType, 'IMO': shipIMO})
+            source_data['Data'].append({'PortName': ptN, 'PortNumber': portNumber, 'Country': ptC, 'Coordinates': coords, 'ShipsOnPort': SoP, 'Un/locode': unlC, 'shipName': shipName, 'shipType': shipType, 'IMO': shipIMO})
             storage = source_data
         except:
             storage = Data
