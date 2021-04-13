@@ -3,10 +3,9 @@ using MySql.Data.MySqlClient;
 
 class SQL {
 
+    static string cs = @"server=localhost;userid=root;password=shipmng;database=shipmngt";
     public static void AddSQL() 
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-        string cs = @"server=localhost;userid=root;password=shipmng;database=shipmngt";
 
         using var con = new MySqlConnection(cs);
         con.Open();
@@ -17,14 +16,13 @@ class SQL {
         using MySqlDataReader rdr = cmd.ExecuteReader();
         while (rdr.Read())
         {
-            Console.WriteLine($"{rdr.GetString(0)} {rdr.GetInt32(1)} {rdr.GetString(2)} {rdr.GetString(3)} {rdr.GetInt32(4)} {rdr.GetString(5)} {rdr.GetString(6)} {rdr.GetString(7)} {rdr.GetInt32(8)}");
+            Console.WriteLine($"Port Name: {rdr.GetString(0)}\nPort Number: {rdr.GetInt32(1)}\nCountry:{rdr.GetString(2)}\nCoordinates: {rdr.GetString(3)}\nShips on port: {rdr.GetInt32(4)}\nUnlocode: {rdr.GetString(5)}\nShip Name: {rdr.GetString(6)}\nShip Type: {rdr.GetString(7)}\nShip IMO: {rdr.GetInt32(8)}");
+            Console.WriteLine("---------------------------------");
         }
     }
 
     public static void ClearSQL()
     {
-        Console.ForegroundColor = ConsoleColor.Blue;
-        string cs = @"server=localhost;userid=root;password=shipmng;database=shipmngt";
 
         using var con = new MySqlConnection(cs);
         con.Open();

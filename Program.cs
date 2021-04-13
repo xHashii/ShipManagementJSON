@@ -54,12 +54,14 @@ namespace ShipManagement
 
         public static void PrintRegister()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             SQL.AddSQL();
             Console.ResetColor();
         }
 
         public static void ClearRegister()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             SQL.ClearSQL();
             Console.WriteLine("All data has been cleared!");
             Console.ResetColor();
