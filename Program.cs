@@ -45,9 +45,11 @@ namespace ShipManagement
                     case "3":
                         ClearRegister();
                         break;
+                    case "4":
+                        Environment.Exit(0);
+                        break;
                     default: 
-                        Environment.Exit(0); 
-                            break;
+                        return;
                 }
             }
         }
