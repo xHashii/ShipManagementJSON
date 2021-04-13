@@ -9,8 +9,7 @@ table_data = "data"
 db = mysql.connect(
     host = "localhost",
     user = "root",
-    passwd = "shipmng",
-    database = DB_NAME
+    passwd = "shipmng"
 )
 
 portNumber = input()
@@ -56,19 +55,17 @@ coords = shipsOnThePortCount.replace('\n', '~').split('~')[3]
 SoP = int(shipsOnThePortCount.replace('\n', '~').split('~')[18])
 unlC = shipsOnThePortCount.replace('\n', '~').split('~')[14]
 
-
 cursor = db.cursor()
 cursor.execute("SHOW DATABASES")
 
 if DB_NAME in cursor:
     cursor.fetchone()[0]==1
     print(f"{DB_NAME} found.")
-elif DB_NAME in cursor:
+else:
     print(f"Database {DB_NAME} doesn't exist, creating now....")
-    cursor.execute("CREATE DATABASE shipmngt")
+    cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}")
     print(f"Database {DB_NAME} created!")
-
-
+db.cmd_init_db(DB_NAME)
 if table_data in cursor:
     print()
 else:
