@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using MySql.Data.MySqlClient;
 
 namespace ShipManagement
 {
@@ -41,9 +42,9 @@ namespace ShipManagement
                     case "2": 
                         PrintRegister();
                             break;
-                    case "3": 
+                    case "3":
                         ClearRegister();
-                            break;
+                        break;
                     default: 
                         Environment.Exit(0); 
                             break;
@@ -54,27 +55,48 @@ namespace ShipManagement
         public static void PrintRegister()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            var register = File.ReadAllText("pD.json");
-            Root json = JsonConvert.DeserializeObject<Root>(register);
-            foreach (var data in json.data)
+            string cs = @"server=localhost;userid=root;password=shipmng;database=shipmngt";
+
+            using var con = new MySqlConnection(cs);
+            con.Open();
+
+            string sql = "SELECT * FROM data";
+            using var cmd = new MySqlCommand(sql, con);
+
+            using MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
             {
-                Console.WriteLine("Port Name: {0}, Port Number: {1}, Country: {2}, Coordinates: {3}, ShipsOnPort: {4}, UnLocode: {5}, shipName: {6}, shipType: {7}, IMO: {8}", data.PortName, data.PortNumber, data.Country, data.Coordinates, data.Shipsonport, data.UnLocode, data.shipName, data.shipType, data.IMO);
+                Console.WriteLine($"{rdr.GetString(0)} {rdr.GetInt32(1)}  {rdr.GetString(2)} {rdr.GetString(3)} {rdr.GetInt32(4)} {rdr.GetString(5)} {rdr.GetString(6)} {rdr.GetString(7)} {rdr.GetInt32(8)}");
             }
             Console.ResetColor();
         }
+
         public static void ClearRegister()
         {
-            using (StreamWriter writer = new StreamWriter("pD.json"))
+            Console.ForegroundColor = ConsoleColor.Blue;
+            string cs = @"server=localhost;userid=root;password=shipmng;database=shipmngt";
+
+            using var con = new MySqlConnection(cs);
+            con.Open();
+
+            string sql = "TRUNCATE TABLE data";
+            using var cmd = new MySqlCommand(sql, con);
+
+            using MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
             {
-                writer.WriteLine("~~~~");
+                
             }
+            Console.WriteLine("All data has been cleared!");
+            Console.ResetColor();
         }
+
         public static void Scrape()
         {
             Console.Write("Enter port number: ");
             ProcessStartInfo start = new ProcessStartInfo();
             start.FileName = "python.exe";
-            start.Arguments = string.Format("Scraper.py cmd.exe");
+            start.Arguments = string.Format("scrapersql.py cmd.exe");
             start.UseShellExecute = false;
             start.RedirectStandardOutput = true;
             using(Process process = Process.Start(start))
