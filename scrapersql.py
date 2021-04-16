@@ -72,6 +72,9 @@ else:
     cursor.execute("CREATE TABLE IF NOT EXISTS data(PortName VARCHAR(12) NOT NULL,PortNumber INTEGER NOT NULL,Country VARCHAR(20) NOT NULL,Coordinates VARCHAR(24) NOT NULL,ShipsOnPort INTEGER NOT NULL,Unlocode VARCHAR(5) NOT NULL,ShipName VARCHAR(14) NOT NULL,ShipType VARCHAR(13) NOT NULL,IMO INTEGER NOT NULL);")
 
 query = "INSERT INTO Data(PortName, PortNumber, Country, Coordinates, ShipsOnPort, Unlocode, ShipName, ShipType, IMO) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
-values = (ptN, portNumber, ptC, coords, SoP, unlC, shipName, shipType, shipIMO)
+try:
+    values = (ptN, portNumber, ptC, coords, SoP, unlC, shipName, shipType, shipIMO)
+except:
+    values = (ptN, portNumber, ptC, coords, SoP, unlC, "No ship", "None", 0)
 cursor.execute(query, values)
 db.commit()

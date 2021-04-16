@@ -17,8 +17,9 @@ class SQL {
             using MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Console.WriteLine($"Port Name: {rdr.GetString(0)}\nPort Number: {rdr.GetInt32(1)}\nCountry:{rdr.GetString(2)}\nCoordinates: {rdr.GetString(3)}\nShips on port: {rdr.GetInt32(4)}\nUnlocode: {rdr.GetString(5)}\nShip Name: {rdr.GetString(6)}\nShip Type: {rdr.GetString(7)}\nShip IMO: {rdr.GetInt32(8)}");
                 Console.WriteLine("---------------------------------");
+                Console.WriteLine($"Port Name: {rdr.GetString(0)}\nPort Number: {rdr.GetInt32(1)}\nCountry:{rdr.GetString(2)}\nCoordinates: {rdr.GetString(3)}\nShips on port: {rdr.GetInt32(4)}\nUnlocode: {rdr.GetString(5)}\nShip Name: {rdr.GetString(6)}\nShip Type: {rdr.GetString(7)}\nShip IMO: {rdr.GetInt32(8)}");
+                //Console.WriteLine("---------------------------------");
             }
         }
         catch (Exception ex)

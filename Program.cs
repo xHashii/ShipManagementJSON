@@ -28,7 +28,7 @@ namespace ShipManagement
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Available port numbers: 1, 3 - 20231 (not all numbers are real ports)");
-                Console.WriteLine("Some of the Ship IMOs are 0, so some Ship might have IMO as 0");
+                Console.WriteLine("Some of the Ship IMOs are 0, so some ships might have IMO as 0");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("-_-_-_-_-_-_-_-");
                 Console.ResetColor();
